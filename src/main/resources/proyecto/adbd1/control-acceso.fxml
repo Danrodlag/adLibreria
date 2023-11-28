@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="560.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.adbd1.ControlAccesoController">
+   <children>
+      <Button fx:id="aceptarButton" layoutX="124.0" layoutY="240.0" mnemonicParsing="false" onAction="#aceptar" prefHeight="30.0" prefWidth="142.0" text="Aceptar">
+         <font>
+            <Font name="Calibri Bold" size="21.0" />
+         </font>
+      </Button>
+      <Button fx:id="altaNuevoButton" layoutX="126.0" layoutY="285.0" mnemonicParsing="false" onAction="#altaNuevo" prefHeight="31.0" prefWidth="292.0" text="Alta nuevo usuario">
+         <font>
+            <Font name="Calibri Bold" size="21.0" />
+         </font>
+      </Button>
+      <Button fx:id="salirButton" layoutX="126.0" layoutY="330.0" mnemonicParsing="false" onAction="#salir" prefHeight="31.0" prefWidth="292.0" text="Salir">
+         <font>
+            <Font name="Calibri Bold" size="21.0" />
+         </font>
+      </Button>
+      <Button fx:id="cancelarButton" layoutX="276.0" layoutY="240.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="30.0" prefWidth="142.0" text="Cancelar">
+         <font>
+            <Font name="Calibri Bold" size="21.0" />
+         </font>
+      </Button>
+      <Label layoutX="83.0" layoutY="147.0" text="Password">
+         <font>
+            <Font name="Calibri Bold" size="26.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="passwordTextField" layoutX="223.0" layoutY="140.0" prefHeight="44.0" prefWidth="286.0">
+         <font>
+            <Font name="Calibri" size="24.0" />
+         </font>
+      </PasswordField>
+      <Label layoutX="83.0" layoutY="80.0" text="User ">
+         <font>
+            <Font name="Calibri Bold" size="26.0" />
+         </font>
+      </Label>
+      <TextField fx:id="userTextField" layoutX="223.0" layoutY="74.0" prefHeight="44.0" prefWidth="286.0" />
+   </children>
+</AnchorPane>
