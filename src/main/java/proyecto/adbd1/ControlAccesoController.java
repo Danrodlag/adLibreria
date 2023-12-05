@@ -47,8 +47,7 @@ public class ControlAccesoController {
         }
         // Realizar la validación en la base de datos
         if (validarCredenciales(username, password)) {
-            // Credenciales válidas, puedes realizar alguna acción adicional o simplemente mostrar un mensaje
-            mostrarMensaje("Acceso concedido");
+            ControlPrincipal controlPrincipal = new ControlPrincipal();
         } else {
             // Credenciales inválidas, muestra un mensaje de error
             mostrarMensaje("Credenciales incorrectas");
