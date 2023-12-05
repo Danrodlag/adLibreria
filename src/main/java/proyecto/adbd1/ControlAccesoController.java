@@ -37,8 +37,14 @@ public class ControlAccesoController {
     @FXML
     void aceptar(ActionEvent event) {
         String username = userTextField.getText();
-        String password = passwordTextField.getText();
 
+        Encriptacion encriptacion = new Encriptacion();
+        String password = null;
+        try {
+            password = encriptacion.hashPassword(passwordTextField.getText());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         // Realizar la validación en la base de datos
         if (validarCredenciales(username, password)) {
             // Credenciales válidas, puedes realizar alguna acción adicional o simplemente mostrar un mensaje
@@ -91,20 +97,32 @@ public class ControlAccesoController {
         try (Connection connection = getConnection()) {
 
             // Consulta SQL para verificar las credenciales
-            String query = "SELECT * FROM usuario WHERE usuario.usuario = ? AND usuario.contraseña = ?";
+            String query = "SELECT * FROM usuario WHERE usuario.usuario = ?";
             try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
                 preparedStatement.setString(1, username);
-                preparedStatement.setString(2, encriptacion.desencriptarPassword(password));
+
 
                 try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                    // Si hay algún resultado, las credenciales son válidas
-                    return resultSet.next();
+                    // Mover el cursor a la primera fila
+                    if (resultSet.next()) {
+                        // Si hay algún resultado, las credenciales son válidas
+                        if (encriptacion.hashPassword(resultSet.getString("contraseña")).equals(password)){
+                            return true;
+                        }
+                    } else {
+                        // Manejar la situación cuando no hay ninguna fila en el ResultSet
+                        // Por ejemplo, podrías lanzar una excepción o devolver false
+                    }
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
                 }
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
             return false; // Manejo básico de errores
         }
+        return false;
     }
 
     private void mostrarMensaje(String mensaje) {
