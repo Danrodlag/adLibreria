@@ -6,13 +6,14 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.adbd1.ControlPrincipal">
    <children>
-      <AnchorPane layoutX="-2.0" prefHeight="400.0" prefWidth="600.0">
+      <AnchorPane layoutX="-2.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;">
          <children>
             <Label layoutX="178.0" layoutY="56.0" prefHeight="17.0" prefWidth="82.0" text="Buscar Libro:">
                <font>
@@ -21,12 +22,15 @@
             </Label>
             <TextField fx:id="usuarioText" layoutX="272.0" layoutY="52.0" prefHeight="25.0" prefWidth="152.0" />
             <ComboBox fx:id="comboFiltro" layoutX="455.0" layoutY="52.0" prefHeight="25.0" prefWidth="108.0" />
-            <Label fx:id="textError" layoutX="424.0" layoutY="114.0" prefHeight="25.0" prefWidth="152.0" textAlignment="CENTER">
+            <Label fx:id="textError" layoutX="424.0" layoutY="110.0" prefHeight="25.0" prefWidth="152.0" textAlignment="CENTER">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
             </Label>
-            <ImageView fx:id="imgLogo" fitHeight="110.0" fitWidth="125.0" layoutX="38.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgLogo" fitHeight="110.0" fitWidth="125.0" layoutX="38.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@LogoEmpresaLibros.jpg" />
+               </image></ImageView>
             <TableView fx:id="tablaLibros" layoutX="39.0" layoutY="159.0" prefHeight="212.0" prefWidth="529.0">
               <columns>
                 <TableColumn fx:id="columTitulo" prefWidth="168.0" text="Título" />
@@ -35,12 +39,12 @@
                   <TableColumn fx:id="columCantidad" prefWidth="84.0" text="Cantidad" />
               </columns>
             </TableView>
-            <Button fx:id="añadirBotón" layoutX="216.0" layoutY="110.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Añadir Libro">
+            <Button fx:id="añadirBotón" layoutX="201.0" layoutY="110.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Añadir Libro">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="botónBorrar" layoutX="320.0" layoutY="114.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Borrar Libro">
+            <Button fx:id="botónBorrar" layoutX="312.0" layoutY="110.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Borrar Libro">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>

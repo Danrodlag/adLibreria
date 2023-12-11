@@ -3,11 +3,17 @@ package proyecto.adbd1;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -47,7 +53,23 @@ public class ControlAccesoController {
         }
         // Realizar la validación en la base de datos
         if (validarCredenciales(username, password)) {
-            ControlPrincipal controlPrincipal = new ControlPrincipal();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("princ.fxml"));
+            Parent root = null;
+            try {
+                root = loader.load();
+
+                ControlPrincipal controller = loader.getController();
+                // Puedes llamar a los métodos de MainAppController aquí si es necesario
+
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setMinWidth(600);
+                stage.setMinHeight(400);
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         } else {
             // Credenciales inválidas, muestra un mensaje de error
             mostrarMensaje("Credenciales incorrectas");
