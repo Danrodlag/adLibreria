@@ -1,30 +1,42 @@
 
-g	java:S112R"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8”¼£ÅÅ1
+g	java:S112a"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Å²¢×Å1
+h	java:S112«"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Æ²¢×Å1
 y
-java:S1104"WMake usuarioText a static final constant or non-public and provide accessors if needed.(Ñˆ‡›ûÿÿÿÿ8­ÌÏÄÅ1
+java:S1104"WMake usuarioText a static final constant or non-public and provide accessors if needed.(Ñˆ‡›ûÿÿÿÿ8Ç²¢×Å1
 s
-java:S1104"WMake comboFiltro a static final constant or non-public and provide accessors if needed.(£Àœ@8­ÌÏÄÅ1
+java:S1104"WMake comboFiltro a static final constant or non-public and provide accessors if needed.(£Àœ@8Ç²¢×Å1
 r
-java:S1104"UMake textError a static final constant or non-public and provide accessors if needed.(³Ôş8­ÌÏÄÅ1
+java:S1104"UMake textError a static final constant or non-public and provide accessors if needed.(³Ôş8Ç²¢×Å1
 u
-java:S1104"SMake imgLogo a static final constant or non-public and provide accessors if needed.(íá„çùÿÿÿÿ8­ÌÏÄÅ1
+java:S1104"SMake imgLogo a static final constant or non-public and provide accessors if needed.(íá„çùÿÿÿÿ8Ç²¢×Å1
 y
-java:S1104"WMake tablaLibros a static final constant or non-public and provide accessors if needed.(™Ñ½÷ûÿÿÿÿ8­ÌÏÄÅ1
+java:S1104 "WMake tablaLibros a static final constant or non-public and provide accessors if needed.(™Ñ½÷ûÿÿÿÿ8Ç²¢×Å1
 y
-java:S1104"WMake columTitulo a static final constant or non-public and provide accessors if needed.(Áô³Ùÿÿÿÿÿ8­ÌÏÄÅ1
+java:S1104!"WMake columTitulo a static final constant or non-public and provide accessors if needed.(Áô³Ùÿÿÿÿÿ8Ç²¢×Å1
 s
-java:S1104"VMake columAutor a static final constant or non-public and provide accessors if needed.(ÅÂÓ8­ÌÏÄÅ1
+java:S1104""VMake columAutor a static final constant or non-public and provide accessors if needed.(ÅÂÓ8Ç²¢×Å1
 t
-java:S1104"WMake columAnoPub a static final constant or non-public and provide accessors if needed.(¨óì†8­ÌÏÄÅ1
+java:S1104#"WMake columAnoPub a static final constant or non-public and provide accessors if needed.(¨óì†8Ç²¢×Å1
 v
-java:S1104"YMake columCantidad a static final constant or non-public and provide accessors if needed.(Åàì8®ÌÏÄÅ1
-{
-java:S1104"YMake aÃ±adirBotÃ³n a static final constant or non-public and provide accessors if needed.(áüÒ—üÿÿÿÿ8®ÌÏÄÅ1
-t
-java:S1104 "XMake botÃ³nBorrar a static final constant or non-public and provide accessors if needed.(ÿŞƒ8®ÌÏÄÅ1
-y	java:S116"XRename this field "aÃ±adirBotÃ³n" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áüÒ—üÿÿÿÿ8¸ÌÏÄÅ1
-r	java:S116 "WRename this field "botÃ³nBorrar" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿŞƒ8¸ÌÏÄÅ1
-S
-java:S1128"6Remove this unused import 'javafx.fxml.Initializable'.(™ÎùÆ8’õÕÅÅ1
-R
-java:S1128"5Remove this unused import 'java.text.ParseException'.(ñ®ï•8’õÕÅÅ1
+java:S1104$"YMake columCantidad a static final constant or non-public and provide accessors if needed.(Åàì8Ç²¢×Å1
+r
+java:S1104%"UMake btnAnadir a static final constant or non-public and provide accessors if needed.(ÁİÖÛ8Ç²¢×Å1
+w
+java:S1104&"UMake btnBorrar a static final constant or non-public and provide accessors if needed.(˜Íƒÿùÿÿÿÿ8Ç²¢×Å1
+x
+java:S1104'"VMake tituloText a static final constant or non-public and provide accessors if needed.(èéß•ıÿÿÿÿ8Ç²¢×Å1
+u
+java:S1104("XMake cantidadText a static final constant or non-public and provide accessors if needed.(Àı”¥8Ç²¢×Å1
+r
+java:S1104)"UMake autorText a static final constant or non-public and provide accessors if needed.(Ü«Â8Ç²¢×Å1
+w
+java:S1104*"UMake fechaText a static final constant or non-public and provide accessors if needed.(ÈèøÂøÿÿÿÿ8Ç²¢×Å1
+s
+java:S1104+"VMake btnAceptar a static final constant or non-public and provide accessors if needed.(°‡÷Ó8Ç²¢×Å1
+y
+java:S1104,"WMake btnCancelar a static final constant or non-public and provide accessors if needed.(Ü”Ú‘ûÿÿÿÿ8Ç²¢×Å1
+8
+java:S3626R"Remove this redundant jump.(ûÁİ…8ï²¢×Å1
+G	java:S106o"+Replace this use of System.out by a logger.(ÁÈ¤ü8€³¢×Å1
+G	java:S106x"+Replace this use of System.out by a logger.(ÛÆİî8€³¢×Å1
+M	java:S106“"+Replace this use of System.out by a logger.(£ª³¥øÿÿÿÿ8ÌÍ»×Å1

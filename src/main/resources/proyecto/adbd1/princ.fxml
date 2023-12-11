@@ -39,12 +39,12 @@
                   <TableColumn fx:id="columCantidad" prefWidth="84.0" text="Cantidad" />
               </columns>
             </TableView>
-            <Button fx:id="añadirBotón" layoutX="201.0" layoutY="110.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Añadir Libro">
+            <Button fx:id="btnAnadir" layoutX="201.0" layoutY="110.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Añadir Libro">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="botónBorrar" layoutX="312.0" layoutY="110.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Borrar Libro">
+            <Button fx:id="btnBorrar" layoutX="312.0" layoutY="110.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Borrar Libro">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>

@@ -466,8 +466,6 @@ w
 G.idea/sonarlint/issuestore/5/f/5f9fdf430d5ee62a0f556f12c7dcd1d34fb3f199,3\e\3e5b6052d19a74590d44cfff0446f46da352acb3
 w
 G.idea/sonarlint/issuestore/c/6/c6913adb5d5f91811b2b98e0b18db65426a45129,7\6\766fec953743d86519b7b7234eb63d09f441024a
-X
-(src/main/java/proyecto/adbd1/Libros.java,e\d\ed1fc2b8f182e8f2d7dee45c981612b6c81dede3
 W
 'src/main/java/proyecto/adbd1/Libro.java,0\a\0ad409a26f878aa31c8840121900e8797d782cd6
 Å
@@ -958,3 +956,5 @@ w
 G.idea/sonarlint/issuestore/9/c/9cd17a479b052ba213c5e3a230fcf864810fbe3d,4\2\42cdb553b8903c496126c99c8332a871944a5249
 w
 G.idea/sonarlint/issuestore/9/c/9c7d21bdaad39b3d26617f00307326bddf2393cf,a\8\a8b03a1ae376f770bd043390209d81bc8d2d4a81
+A
+bbddAd/bbddAd.sql,2\8\285f3801ba57d83893675d072f978052ad67a6da
