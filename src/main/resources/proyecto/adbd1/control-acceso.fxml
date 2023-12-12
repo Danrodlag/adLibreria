@@ -15,12 +15,7 @@
             <Font name="Calibri" size="24.0" />
          </font>
       </PasswordField>
-      <Button fx:id="aceptarButton" layoutX="124.0" layoutY="240.0" mnemonicParsing="false" onAction="#aceptar" prefHeight="30.0" prefWidth="142.0" text="Aceptar">
-         <font>
-            <Font name="Calibri Bold" size="21.0" />
-         </font>
-      </Button>
-      <Button fx:id="cancelarButton" layoutX="276.0" layoutY="240.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="30.0" prefWidth="142.0" text="Cancelar">
+      <Button fx:id="aceptarButton" layoutX="124.0" layoutY="240.0" mnemonicParsing="false" onAction="#aceptar" prefHeight="40.0" prefWidth="292.0" text="Aceptar">
          <font>
             <Font name="Calibri Bold" size="21.0" />
          </font>
