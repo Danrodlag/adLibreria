@@ -1,23 +1,35 @@
 package proyecto.adbd1.Conexion;
 
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 
 
 public class ConexionDB {
+    private static HikariDataSource dataSource;
 
-    private static final String URL = "jdbc:mariadb://localhost:3306/usulibad";
-    private static final String USER = "root";
-    private static final String PASS = "root";
+    static {
+        HikariConfig config = new HikariConfig();
+        config.setJdbcUrl("jdbc:mysql://localhost:3306/usulibad");
+        config.setUsername("root");
+        config.setPassword("root");
 
-
-
-
-    public static Connection getConnection() throws SQLException {
-
-        return DriverManager.getConnection(URL, USER, PASS);
+        config.setMaximumPoolSize(10);
+        dataSource = new HikariDataSource(config);
     }
 
+    public static Connection getConnection() throws SQLException {
+        return dataSource.getConnection();
+    }
+
+    // You can optionally add a method to close the pool when your application shuts down
+    public static void closeDataSource() {
+        if (dataSource != null && !dataSource.isClosed()) {
+            dataSource.close();
+        }
+
+    }
 
 }

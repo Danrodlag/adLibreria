@@ -29,8 +29,6 @@ public class ControlAccesoController {
     @FXML
     private PasswordField passwordTextField;
 
-    @FXML
-    private Button cancelarButton;
 
     @FXML
     private Button altaNuevoButton;
@@ -75,30 +73,25 @@ public class ControlAccesoController {
             mostrarMensaje("Credenciales incorrectas");
         }
     }
-
     @FXML
     void altaNuevo(ActionEvent event) {
         String nuevoUsername = userTextField.getText();
         String nuevaPassword = passwordTextField.getText();
-
         // Verificar si los campos no están vacíos
         if (nuevoUsername.isEmpty() || nuevaPassword.isEmpty()) {
             mostrarMensaje("Por favor, ingrese un usuario y una contraseña.");
             return;
         }
 
-        // Realizar la inserción en la base de datos
         if (registrarNuevoUsuario(nuevoUsername, nuevaPassword)) {
             mostrarMensaje("Usuario registrado exitosamente.");
         } else {
             mostrarMensaje("Error al registrar el usuario.");
         }
-
         // Limpiar los campos de texto después de realizar el registro
         userTextField.clear();
         passwordTextField.clear();
     }
-
     @FXML
     void salir(ActionEvent event) {
         Platform.exit();

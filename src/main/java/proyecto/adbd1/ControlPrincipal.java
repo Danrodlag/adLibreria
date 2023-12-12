@@ -11,7 +11,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -36,14 +38,6 @@ public class ControlPrincipal {
     public TableColumn<Libro, Integer> columCantidad;
     public Button btnAnadir;
     public Button btnBorrar;
-    public TextField tituloText;
-    public TextField cantidadText;
-    public TextField autorText;
-    public DatePicker fechaText;
-    public Button btnAceptar;
-    public Button btnCancelar;
-
-    private ObservableList<Libro> librosData = FXCollections.observableArrayList();
 
     @FXML
     private void initialize() {
@@ -72,86 +66,56 @@ public class ControlPrincipal {
 
         btnAnadir.setOnAction(this::btnAnadirPulsado);
         btnBorrar.setOnAction(event -> btnBorrarPulsado());
-
-
-        // Añadir los datos a la TableView
-        tablaLibros.setItems(librosData);
     }
 
     private void btnBorrarPulsado() {
-        return;
+        Libro libro = tablaLibros.getSelectionModel().getSelectedItem();
+        borrarLibro(libro);
+        cargarDatosLibros();
     }
 
-    private void btnAnadirPulsado(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("anadirLibro.fxml"));
-        Parent root;
-        try {
-            root = loader.load();
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setMinWidth(600);
-            stage.setMinHeight(400);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        btnAceptar.setOnAction(this::btnAceptarPulsado);
-    }
-    private void btnAceptarPulsado(ActionEvent event) {
-        // Obtener los valores de los campos de texto y el selector de fecha
-        String titulo = tituloText.getText();
-        String autor = autorText.getText();
-        String cantidadStr = cantidadText.getText();
-        LocalDate fecha = fechaText.getValue();
+    private void borrarLibro(Libro libro) {
 
-        // Validar los datos ingresados
-        if (titulo.isEmpty() || autor.isEmpty() || cantidadStr.isEmpty() || fecha == null) {
-            // Mostrar algún mensaje de error
-            System.out.println("Por favor, completa todos los campos.");
-            return;
-        }
-
-        int cantidad;
-        try {
-            cantidad = Integer.parseInt(cantidadStr);
-        } catch (NumberFormatException e) {
-            // Mostrar algún mensaje de error
-            System.out.println("La cantidad debe ser un número entero.");
-            return;
-        }
-
-       insertarLibroEnBD(titulo, autor,fecha, cantidad);
-
-        tituloText.clear();
-        autorText.clear();
-        cantidadText.clear();
-        fechaText.setValue(null);
-
-        ((Node)(event.getSource())).getScene().getWindow().hide();
-    }
-
-    private void insertarLibroEnBD(String titulo, String autor, LocalDate fecha, int cantidad) {
-        String query = "INSERT INTO libros (titulo, autor, anioPublicación, cantidadDisponible) VALUES (?, ?, ?, ?)";
-
+        String query = "DELETE FROM libros WHERE idLibro = ?";
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-
-            preparedStatement.setString(1, titulo);
-            preparedStatement.setString(2, autor);
-            preparedStatement.setDate(3, Date.valueOf(fecha));
-            preparedStatement.setInt(4, cantidad);
-
+            preparedStatement.setInt(1, libro.getIdLibro());
             int filasAfectadas = preparedStatement.executeUpdate();
             if (filasAfectadas > 0) {
-                System.out.println("Inserción exitosa!");
+
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+
     }
 
+    private void btnAnadirPulsado(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("anadirLibro.fxml"));
+
+        try {
+            Parent root = loader.load();
+            ControlAnadir controlAnadir = new ControlAnadir();
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+            stage.setMinWidth(300);
+            stage.setMinHeight(400);
+
+            stage.setScene(scene);
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.initStyle(StageStyle.UTILITY);
+            stage.showAndWait();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        cargarDatosLibros();
+    }
+
+
+
     private void cargarDatosLibros() {
+        tablaLibros.getItems().clear();
         try (Connection connection = getConnection()) {
             String query = "SELECT * FROM libros";
             try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -163,10 +127,12 @@ public class ControlPrincipal {
                         Date fecha = resultSet.getDate("libros.aniopublicación");
                         int cantidadDisponible = resultSet.getInt("libros.cantidadDisponible");
 
-                        librosData.add(new Libro(idLibro, autor,titulo, fecha, cantidadDisponible));
+                        tablaLibros.getItems().add(new Libro(idLibro,titulo, autor, fecha, cantidadDisponible ));
+
                     }
                 }
             }
+            tablaLibros.refresh();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

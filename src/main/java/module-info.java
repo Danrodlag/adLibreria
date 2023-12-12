@@ -4,6 +4,7 @@ module proyecto.adbd {
 
     requires com.dlsc.formsfx;
     requires java.sql;
+    requires com.zaxxer.hikari;
 
     opens proyecto.adbd1 to javafx.fxml;
     exports proyecto.adbd1;

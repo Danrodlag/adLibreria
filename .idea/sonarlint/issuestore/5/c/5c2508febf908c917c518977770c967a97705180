@@ -1,0 +1,16 @@
+
+x
+java:S1104"VMake tituloText a static final constant or non-public and provide accessors if needed.(èéß•ıÿÿÿÿ8‹è‰ïÅ1
+u
+java:S1104"XMake cantidadText a static final constant or non-public and provide accessors if needed.(Àı”¥8‹è‰ïÅ1
+r
+java:S1104"UMake autorText a static final constant or non-public and provide accessors if needed.(Ü«Â8‹è‰ïÅ1
+w
+java:S1104"UMake fechaText a static final constant or non-public and provide accessors if needed.(ÈèøÂøÿÿÿÿ8‹è‰ïÅ1
+s
+java:S1104"VMake btnAceptar a static final constant or non-public and provide accessors if needed.(°‡÷Ó8‹è‰ïÅ1
+y
+java:S1104"WMake btnCancelar a static final constant or non-public and provide accessors if needed.(Ü”Ú‘ûÿÿÿÿ8‹è‰ïÅ1
+G	java:S106/"+Replace this use of System.out by a logger.(ÁÈ¤ü8­è‰ïÅ1
+G	java:S1068"+Replace this use of System.out by a logger.(ÛÆİî8®è‰ïÅ1
+L	java:S106R"+Replace this use of System.out by a logger.(£ª³¥øÿÿÿÿ8°è‰ïÅ1
