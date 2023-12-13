@@ -1,6 +1,6 @@
-package proyecto.adbd1;
+package erp.proyecto;
 
-public class main {
+public class Main {
     public static void main(String[] args){
         HelloApplication application = new HelloApplication();
         application.run();
