@@ -1,4 +1,4 @@
-package proyecto.adbd1;
+package proyecto.erp;
 
 
 import java.nio.charset.StandardCharsets;

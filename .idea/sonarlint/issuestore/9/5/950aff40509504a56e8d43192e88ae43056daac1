@@ -1,4 +1,3 @@
 
-i	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(·š†‡8ý¶Ï¢Æ1
-i
-java:S1223"LRename this method to prevent any misunderstanding or make it a constructor.(Çµí‘8ý¶Ï¢Æ1
+¾
+java:S1598" This file "main.java" should be located in "erp\proyecto" directory, not in "C:\Users\drode\OneDrive\Documentos\GitHub\adLibreria\src\main\java\proyecto\adbd1".(àò¶Ò8´ìÜ©Æ1

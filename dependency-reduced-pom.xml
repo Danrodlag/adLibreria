@@ -29,7 +29,7 @@
         <configuration>
           <transformers>
             <transformer>
-              <mainClass>proyecto.adbd1.main</mainClass>
+              <mainClass>proyecto.erp.main</mainClass>
             </transformer>
           </transformers>
         </configuration>
@@ -42,7 +42,7 @@
           <execution>
             <id>default-cli</id>
             <configuration>
-              <mainClass>proyecto.adbd1.main</mainClass>
+              <mainClass>proyecto.erp.main</mainClass>
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
               <jlinkImageName>app</jlinkImageName>

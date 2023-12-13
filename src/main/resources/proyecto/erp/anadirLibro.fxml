@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="370.0" prefWidth="367.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.adbd1.ControlAnadir">
+<AnchorPane prefHeight="370.0" prefWidth="367.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.erp.ControlAnadir">
    <children>
       <AnchorPane layoutX="-10.0" layoutY="1.0" prefHeight="368.0" prefWidth="370.0">
          <children>

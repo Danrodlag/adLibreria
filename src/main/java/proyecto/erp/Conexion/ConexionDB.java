@@ -1,4 +1,4 @@
-package proyecto.adbd1.Conexion;
+package proyecto.erp.Conexion;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
@@ -12,7 +12,7 @@ public class ConexionDB {
 
     static {
         HikariConfig config = new HikariConfig();
-        config.setJdbcUrl("jdbc:mariadb://localhost:3306/usulibad");
+        config.setJdbcUrl("jdbc:mariadb://localhost:3306/usuerp");
         config.setUsername("root");
         config.setPassword("root");
 

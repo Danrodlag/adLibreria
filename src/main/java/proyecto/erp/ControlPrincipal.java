@@ -1,11 +1,8 @@
-package proyecto.adbd1;
+package proyecto.erp;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -21,30 +18,29 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.sql.Date;
 
-import static proyecto.adbd1.Conexion.ConexionDB.getConnection;
+import static proyecto.erp.Conexion.ConexionDB.getConnection;
 
 public class ControlPrincipal {
     public TextField usuarioText;
     public ComboBox<String> comboFiltro;
     public Label textError;
     public ImageView imgLogo;
-    public TableView<Libro> tablaLibros;
-    public TableColumn<Libro, String> columTitulo;
-    public TableColumn<Libro, String> columAutor;
-    public TableColumn<Libro, Date> columAnoPub;
-    public TableColumn<Libro, Integer> columCantidad;
+    public TableView<Cliente> tablaLibros;
+    public TableColumn<Cliente, String> columTitulo;
+    public TableColumn<Cliente, String> columAutor;
+    public TableColumn<Cliente, Date> columAnoPub;
+    public TableColumn<Cliente, Integer> columCantidad;
     public Button btnAnadir;
     public Button btnBorrar;
 
     @FXML
     private void initialize() {
         // Configurar las columnas de la TableView
-        columTitulo.setCellValueFactory(cellData -> cellData.getValue().tituloProperty());
-        columAutor.setCellValueFactory(cellData -> cellData.getValue().autorProperty());
-        columAnoPub.setCellFactory(column -> new TableCell<Libro, Date>() {
+        columTitulo.setCellValueFactory(cellData -> cellData.getValue().nombreProperty());
+        columAutor.setCellValueFactory(cellData -> cellData.getValue().direccionProperty());
+        columAnoPub.setCellFactory(column -> new TableCell<Cliente, Date>() {
             private final SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
             @Override
@@ -70,17 +66,17 @@ public class ControlPrincipal {
     }
 
     private void btnBorrarPulsado() {
-        Libro libro = tablaLibros.getSelectionModel().getSelectedItem();
-        borrarLibro(libro);
+        Cliente cliente = tablaLibros.getSelectionModel().getSelectedItem();
+        borrarLibro(cliente);
         cargarDatosLibros();
     }
 
-    private void borrarLibro(Libro libro) {
+    private void borrarLibro(Cliente cliente) {
 
         String query = "DELETE FROM libros WHERE idLibro = ?";
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setInt(1, libro.getIdLibro());
+            preparedStatement.setInt(1, cliente.getIdCliente());
             int filasAfectadas = preparedStatement.executeUpdate();
             if (filasAfectadas > 0) {
 
@@ -151,7 +147,7 @@ public class ControlPrincipal {
                         Date fecha = resultSet.getDate("libros.aniopublicación");
                         int cantidadDisponible = resultSet.getInt("libros.cantidadDisponible");
 
-                        tablaLibros.getItems().add(new Libro(idLibro,titulo, autor, fecha, cantidadDisponible ));
+                        tablaLibros.getItems().add(new Cliente(idLibro,titulo, autor, fecha, cantidadDisponible ));
 
                     }
                 }

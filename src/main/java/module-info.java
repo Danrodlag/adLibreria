@@ -6,6 +6,6 @@ module proyecto.adbd {
     requires java.sql;
     requires com.zaxxer.hikari;
 
-    opens proyecto.adbd1 to javafx.fxml;
-    exports proyecto.adbd1;
+    opens proyecto.erp to javafx.fxml;
+    exports proyecto.erp;
 }

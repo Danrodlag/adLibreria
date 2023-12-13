@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="560.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.adbd1.ControlAccesoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="560.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.erp.ControlAccesoController">
    <children>
       <TextField fx:id="userTextField" layoutX="223.0" layoutY="74.0" prefHeight="44.0" prefWidth="286.0" />
       <PasswordField fx:id="passwordTextField" layoutX="223.0" layoutY="140.0" prefHeight="44.0" prefWidth="286.0">

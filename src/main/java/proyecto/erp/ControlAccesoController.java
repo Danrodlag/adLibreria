@@ -1,4 +1,4 @@
-package proyecto.adbd1;
+package proyecto.erp;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -19,7 +19,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import static proyecto.adbd1.Conexion.ConexionDB.getConnection;
+import static proyecto.erp.Conexion.ConexionDB.getConnection;
 
 public class ControlAccesoController {
 

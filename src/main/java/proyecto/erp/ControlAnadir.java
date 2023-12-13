@@ -1,4 +1,4 @@
-package proyecto.adbd1;
+package proyecto.erp;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,7 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.LocalDate;
 
-import static proyecto.adbd1.Conexion.ConexionDB.getConnection;
+import static proyecto.erp.Conexion.ConexionDB.getConnection;
 
 public class ControlAnadir {
 

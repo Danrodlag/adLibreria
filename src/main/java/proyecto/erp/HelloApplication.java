@@ -1,4 +1,4 @@
-package proyecto.adbd1;
+package proyecto.erp;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
