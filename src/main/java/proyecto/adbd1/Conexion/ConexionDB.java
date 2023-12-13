@@ -12,7 +12,7 @@ public class ConexionDB {
 
     static {
         HikariConfig config = new HikariConfig();
-        config.setJdbcUrl("jdbc:mysql://localhost:3306/usulibad");
+        config.setJdbcUrl("jdbc:mariadb://localhost:3306/usulibad");
         config.setUsername("root");
         config.setPassword("root");
 

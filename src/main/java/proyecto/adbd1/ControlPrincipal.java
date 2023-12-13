@@ -63,6 +63,7 @@ public class ControlPrincipal {
         columCantidad.setCellValueFactory(cellData -> cellData.getValue().cantidadDisponibleProperty().asObject());
 
         cargarDatosLibros();
+        ejecutarCargaPeriodica();
 
         btnAnadir.setOnAction(this::btnAnadirPulsado);
         btnBorrar.setOnAction(event -> btnBorrarPulsado());
@@ -112,7 +113,30 @@ public class ControlPrincipal {
         cargarDatosLibros();
     }
 
+    public void ejecutarCargaPeriodica() {
+        // Crea un objeto Runnable que llama a cargarDatosLibros()
+        Runnable tarea = new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    cargarDatosLibros();
+                    try {
+                        // Espera un segundo antes de la próxima llamada
+                        Thread.sleep(1000);
 
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                        // En caso de interrupción, termina el bucle
+                        break;
+                    }
+                }
+            }
+        };
+
+        // Crea e inicia un hilo con la tarea definida
+        Thread hilo = new Thread(tarea);
+        hilo.start();
+    }
 
     private void cargarDatosLibros() {
         tablaLibros.getItems().clear();
