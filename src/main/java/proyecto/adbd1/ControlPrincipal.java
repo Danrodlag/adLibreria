@@ -1,5 +1,8 @@
 package proyecto.adbd1;
 
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,6 +17,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -38,6 +42,9 @@ public class ControlPrincipal {
     public TableColumn<Libro, Integer> columCantidad;
     public Button btnAnadir;
     public Button btnBorrar;
+    public boolean running;
+    public Button btnModificar;
+    public Button btnBuscar;
 
     @FXML
     private void initialize() {
@@ -63,10 +70,48 @@ public class ControlPrincipal {
         columCantidad.setCellValueFactory(cellData -> cellData.getValue().cantidadDisponibleProperty().asObject());
 
         cargarDatosLibros();
+        running = true;
         ejecutarCargaPeriodica();
-
+        tablaLibros.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if(newSelection != null) {
+                running=false;
+            }else {
+                running= true;
+            }
+        });
+        deseleccionarTabla();
         btnAnadir.setOnAction(this::btnAnadirPulsado);
         btnBorrar.setOnAction(event -> btnBorrarPulsado());
+        btnBuscar.setOnAction(this::btnBuscarPulsado);
+        btnModificar.setOnAction(event -> btnModificarPulsado());
+
+    }
+
+    private void btnModificarPulsado() {
+        Libro libro = tablaLibros.getSelectionModel().getSelectedItem();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("modLibro.fxml"));
+
+        try {
+            ControlModificar controlModificar = new ControlModificar(libro);
+            loader.setController(controlModificar);
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+            stage.setMinWidth(300);
+            stage.setMinHeight(400);
+
+            stage.setScene(scene);
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.initStyle(StageStyle.UTILITY);
+            stage.showAndWait();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    private void btnBuscarPulsado(ActionEvent event) {
     }
 
     private void btnBorrarPulsado() {
@@ -97,7 +142,6 @@ public class ControlPrincipal {
 
         try {
             Parent root = loader.load();
-            ControlAnadir controlAnadir = new ControlAnadir();
             Stage stage = new Stage();
             Scene scene = new Scene(root);
             stage.setMinWidth(300);
@@ -110,31 +154,36 @@ public class ControlPrincipal {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        cargarDatosLibros();
+
+    }
+
+    public void deseleccionarTabla(){
+        Timeline deseleccionarTimeline = new Timeline(new KeyFrame(Duration.seconds(10), event -> tablaLibros.getSelectionModel().clearSelection()));
+
+        deseleccionarTimeline.setCycleCount(Animation.INDEFINITE);
+
+        deseleccionarTimeline.play();
     }
 
     public void ejecutarCargaPeriodica() {
         // Crea un objeto Runnable que llama a cargarDatosLibros()
-        Runnable tarea = new Runnable() {
-            @Override
-            public void run() {
-                while (true) {
-                    cargarDatosLibros();
-                    try {
-                        // Espera un segundo antes de la próxima llamada
-                        Thread.sleep(1000);
+        Runnable tarea = () -> {
+            while (running) {
+                cargarDatosLibros();
+                try {
+                    // Espera un segundo antes de la próxima llamada
+                    Thread.sleep(500);
 
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                        // En caso de interrupción, termina el bucle
-                        break;
-                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                    // En caso de interrupción, termina el bucle
+                    break;
                 }
             }
         };
-
         // Crea e inicia un hilo con la tarea definida
         Thread hilo = new Thread(tarea);
+        hilo.setDaemon(true);
         hilo.start();
     }
 

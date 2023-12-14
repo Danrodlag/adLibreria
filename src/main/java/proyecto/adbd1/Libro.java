@@ -2,7 +2,7 @@ package proyecto.adbd1;
 
 import javafx.beans.property.*;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Libro {
     private IntegerProperty idLibro;

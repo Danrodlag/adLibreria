@@ -1,5 +1,6 @@
 package proyecto.adbd1;
 
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -17,14 +18,15 @@ import java.time.LocalDate;
 
 import static proyecto.adbd1.Conexion.ConexionDB.getConnection;
 
-public class ControlAnadir {
+public class ControlModificar {
 
-    public TextField tituloText;
-    public TextField cantidadText;
-    public TextField autorText;
-    public DatePicker fechaText;
+    public TextField tituloText = new TextField();
+    public TextField cantidadText = new TextField();
+    public TextField autorText = new TextField();
+    public DatePicker fechaText = new DatePicker();
     public Button btnAceptar;
     public Button btnCancelar;
+    public int idLibro;
 
     @FXML
     public void initialize(){
@@ -35,6 +37,15 @@ public class ControlAnadir {
             stage.close();
         });
     }
+
+    public ControlModificar(Libro libro) {
+        tituloText.setPromptText(libro.getTitulo());
+        autorText.setPromptText(libro.getAutor());
+        cantidadText.setPromptText(String.valueOf(libro.getCantidadDisponible()));
+        fechaText.setPromptText(String.valueOf(libro.getFecha().toLocalDate()));
+        this.idLibro = libro.getIdLibro();
+    }
+
     private void btnAceptarPulsado(ActionEvent event) {
         // Obtener los valores de los campos de texto y el selector de fecha
         String titulo = tituloText.getText();
@@ -64,16 +75,6 @@ public class ControlAnadir {
             return;
         }
 
-        try {
-            cantidad = Integer.parseInt(cantidadStr);
-        } catch (NumberFormatException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error de validación");
-            alert.setHeaderText("Datos de Cantidad, inválidos");
-            alert.setContentText("Por favor, escriba un número válido.");
-            alert.showAndWait();
-            return;
-        }
 
         insertarLibroEnBD(titulo, autor,fecha, cantidad);
 
@@ -86,7 +87,7 @@ public class ControlAnadir {
     }
 
     private void insertarLibroEnBD(String titulo, String autor, LocalDate fecha, int cantidad) {
-        String query = "INSERT INTO libros (titulo, autor, anioPublicación, cantidadDisponible) VALUES (?, ?, ?, ?)";
+        String query = "UPDATE libros SET titulo = ?, autor = ?, anioPublicación = ?, cantidadDisponible = ? WHERE idLibro = ?";
 
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -95,14 +96,16 @@ public class ControlAnadir {
             preparedStatement.setString(2, autor);
             preparedStatement.setDate(3, Date.valueOf(fecha));
             preparedStatement.setInt(4, cantidad);
+            preparedStatement.setInt(5, idLibro);
 
             int filasAfectadas = preparedStatement.executeUpdate();
             if (filasAfectadas > 0) {
-                System.out.println("Inserción exitosa!");
+                System.out.println("Actualización exitosa!");
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
     }
 
 }

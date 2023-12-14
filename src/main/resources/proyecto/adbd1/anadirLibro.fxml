@@ -12,9 +12,17 @@
       <AnchorPane layoutX="-10.0" layoutY="1.0" prefHeight="368.0" prefWidth="370.0">
          <children>
             <TextField fx:id="tituloText" layoutX="149.0" layoutY="97.0" />
-            <TextField fx:id="cantidadText" layoutX="149.0" layoutY="200.0" />
             <TextField fx:id="autorText" layoutX="149.0" layoutY="146.0" />
+            <TextField fx:id="cantidadText" layoutX="149.0" layoutY="200.0" />
             <DatePicker fx:id="fechaText" layoutX="149.0" layoutY="259.0" />
+            <Button fx:id="btnAceptar" layoutX="104.0" layoutY="314.0" mnemonicParsing="false" text="Aceptar" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font></Button>
+            <Button fx:id="btnCancelar" layoutX="236.0" layoutY="314.0" mnemonicParsing="false" text="Cancelar" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font></Button>
             <Text layoutX="44.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Título" wrappingWidth="72.13671875" />
             <Text layoutX="44.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Autor" wrappingWidth="72.13671875" />
             <Text layoutX="44.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cantidad Disponible" wrappingWidth="83.13671875" />
@@ -24,14 +32,6 @@
                   <Font name="Arial Bold" size="36.0" />
                </font>
             </Text>
-            <Button fx:id="btnAceptar" layoutX="104.0" layoutY="314.0" mnemonicParsing="false" text="Aceptar" textAlignment="CENTER">
-               <font>
-                  <Font name="Arial" size="12.0" />
-               </font></Button>
-            <Button fx:id="btnCancelar" layoutX="236.0" layoutY="314.0" mnemonicParsing="false" text="Cancelar" textAlignment="CENTER">
-               <font>
-                  <Font name="Arial" size="12.0" />
-               </font></Button>
          </children>
       </AnchorPane>
    </children>

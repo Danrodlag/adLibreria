@@ -86,7 +86,7 @@
                 <configuration>
                     <transformers>
                         <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                            <mainClass>proyecto.adbd1.main</mainClass>
+                            <mainClass>proyecto.adbd1.Main</mainClass>
                         </transformer>
                     </transformers>
                 </configuration>
@@ -100,7 +100,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>proyecto.adbd1.main</mainClass>
+                            <mainClass>proyecto.adbd1.Main</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

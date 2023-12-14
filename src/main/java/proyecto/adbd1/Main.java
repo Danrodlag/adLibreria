@@ -1,4 +1,4 @@
-package erp.proyecto;
+package proyecto.adbd1;
 
 public class Main {
     public static void main(String[] args){

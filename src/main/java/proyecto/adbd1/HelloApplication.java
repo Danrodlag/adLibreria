@@ -1,6 +1,7 @@
 package proyecto.adbd1;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -21,7 +22,13 @@ public class HelloApplication extends Application implements Runnable {
 
         stage.setTitle("");
         stage.setScene(scene);
+        stage.setOnCloseRequest(event -> {
+            Platform.exit();
+            System.exit(0); // Asegura que la JVM se cierre completamente
+        });
+
         stage.show();
+
     }
 
     public void run() {
