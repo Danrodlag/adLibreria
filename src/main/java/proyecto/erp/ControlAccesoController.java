@@ -98,11 +98,6 @@ public class ControlAccesoController {
         System.exit(0);
     }
 
-    @FXML
-    void cancelar(ActionEvent event) {
-        userTextField.clear();
-        passwordTextField.clear();
-    }
 
     private boolean validarCredenciales(String username, String password) {
 

@@ -34,6 +34,12 @@ public class ControlPrincipal {
     public TableColumn<Cliente, Integer> columCantidad;
     public Button btnAnadir;
     public Button btnBorrar;
+    public Tab tabCliente;
+    public TableView tablaClientes;
+    public Tab tabProductos;
+    public TableView tablaProductos;
+    public Tab tabProveedores;
+    public TableView tablaProveedores;
 
     @FXML
     private void initialize() {
