@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 
 public class ConexionDB {
-    private static HikariDataSource dataSource;
+    private static final HikariDataSource dataSource;
 
     static {
         HikariConfig config = new HikariConfig();

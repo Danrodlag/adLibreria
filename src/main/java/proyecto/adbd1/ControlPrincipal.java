@@ -3,6 +3,7 @@ package proyecto.adbd1;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -117,7 +118,6 @@ public class ControlPrincipal {
     private void btnBorrarPulsado() {
         Libro libro = tablaLibros.getSelectionModel().getSelectedItem();
         borrarLibro(libro);
-        cargarDatosLibros();
     }
 
     private void borrarLibro(Libro libro) {
@@ -163,17 +163,21 @@ public class ControlPrincipal {
         deseleccionarTimeline.setCycleCount(Animation.INDEFINITE);
 
         deseleccionarTimeline.play();
+        running = true;
+        ejecutarCargaPeriodica();
     }
 
     public void ejecutarCargaPeriodica() {
         // Crea un objeto Runnable que llama a cargarDatosLibros()
-        Runnable tarea = () -> {
-            while (running) {
-                cargarDatosLibros();
-                try {
-                    // Espera un segundo antes de la próxima llamada
-                    Thread.sleep(500);
 
+        Runnable tarea = () -> {
+            while (true) {
+
+                try {
+                    if(!running){
+                        Platform.runLater(() -> cargarDatosLibros());
+                    }
+                    Thread.sleep(3000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                     // En caso de interrupción, termina el bucle
@@ -183,6 +187,7 @@ public class ControlPrincipal {
         };
         // Crea e inicia un hilo con la tarea definida
         Thread hilo = new Thread(tarea);
+
         hilo.setDaemon(true);
         hilo.start();
     }
@@ -197,7 +202,7 @@ public class ControlPrincipal {
                         int idLibro = resultSet.getInt("idLibro");
                         String titulo = resultSet.getString("libros.titulo");
                         String autor = resultSet.getString("libros.autor");
-                        Date fecha = resultSet.getDate("libros.aniopublicación");
+                        Date fecha = resultSet.getDate("libros.anioPublicación");
                         int cantidadDisponible = resultSet.getInt("libros.cantidadDisponible");
 
                         tablaLibros.getItems().add(new Libro(idLibro,titulo, autor, fecha, cantidadDisponible ));
