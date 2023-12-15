@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="412.0" prefWidth="622.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.erp.ControlPrincipal">
+<AnchorPane prefHeight="412.0" prefWidth="622.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.erp.ControlPrincipal">
    <children>
       <AnchorPane layoutY="3.0" prefHeight="482.0" prefWidth="778.0" style="-fx-background-color: #ffffff;">
          <children>
@@ -22,7 +22,7 @@
                   <Font name="Arial Bold" size="12.0" />
                </font>
             </Label>
-            <TextField fx:id="usuarioText" layoutX="333.0" layoutY="52.0" prefHeight="25.0" prefWidth="152.0" />
+            <TextField fx:id="buscarTxt" layoutX="333.0" layoutY="52.0" prefHeight="25.0" prefWidth="152.0" />
             <ComboBox fx:id="comboFiltro" layoutX="542.0" layoutY="52.0" prefHeight="25.0" prefWidth="108.0" />
             <Label fx:id="textError" layoutX="424.0" layoutY="110.0" prefHeight="25.0" prefWidth="152.0" textAlignment="CENTER">
                <font>
@@ -33,12 +33,12 @@
                <image>
                   <Image url="@LogoEmpresaLibros.jpg" />
                </image></ImageView>
-            <Button fx:id="btnAnadir" layoutX="201.0" layoutY="110.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Añadir Libro">
+            <Button fx:id="btnAnadir" layoutX="201.0" layoutY="110.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Añadir Cliente">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="btnBorrar" layoutX="312.0" layoutY="110.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Borrar Libro">
+            <Button fx:id="btnBorrar" layoutX="346.0" layoutY="110.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Borrar Libro">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
@@ -49,11 +49,10 @@
                      <content>
                         <TableView fx:id="tablaClientes" prefHeight="212.0" prefWidth="529.0">
                           <columns>
-                            <TableColumn fx:id="columNombre" prefWidth="151.0" text="Nombre" />
-                            <TableColumn fx:id="columDireccion" prefWidth="172.0" text="Dirección" />
-                              <TableColumn fx:id="columContacto" minWidth="9.0" prefWidth="116.0" text="Contacto" />
-                              <TableColumn fx:id="columDni" prefWidth="132.0" text="Dni" />
-                              <TableColumn fx:id="columNumComp" prefWidth="79.0" text="Compras" />
+                            <TableColumn fx:id="columNombreCli" prefWidth="166.0" text="Nombre" />
+                            <TableColumn fx:id="columDireccionCli" prefWidth="157.0" text="Dirección" />
+                              <TableColumn fx:id="columContactoCli" minWidth="9.0" prefWidth="183.0" text="Contacto" />
+                              <TableColumn fx:id="columDni" prefWidth="144.0" text="Dni" />
                           </columns>
                         </TableView>
                      </content>
@@ -62,10 +61,11 @@
                      <content>
                         <TableView fx:id="tablaProductos" prefHeight="212.0" prefWidth="529.0">
                            <columns>
-                              <TableColumn fx:id="columTitulo1" prefWidth="168.0" text="Título" />
-                              <TableColumn fx:id="columAutor1" prefWidth="172.0" text="Autor" />
-                              <TableColumn fx:id="columAnoPub1" minWidth="9.0" prefWidth="104.0" text="Año Publicación" />
-                              <TableColumn fx:id="columCantidad1" prefWidth="84.0" text="Cantidad" />
+                              <TableColumn fx:id="columNombreProd" prefWidth="168.0" text="Nombre" />
+                              <TableColumn fx:id="columDescripcionProd" prefWidth="197.0" text="Descripcion" />
+                              <TableColumn fx:id="columPrecio" minWidth="9.0" prefWidth="90.0" text="Precio" />
+                              <TableColumn fx:id="columCantidad" prefWidth="85.0" text="Cantidad" />
+                              <TableColumn fx:id="columIdProveedor" prefWidth="110.0" text="IdProveedor" />
                            </columns>
                         </TableView>
                      </content>
@@ -74,10 +74,10 @@
                      <content>
                         <TableView fx:id="tablaProveedores" prefHeight="212.0" prefWidth="529.0">
                            <columns>
-                              <TableColumn fx:id="columTitulo2" prefWidth="168.0" text="Título" />
-                              <TableColumn fx:id="columAutor2" prefWidth="172.0" text="Autor" />
-                              <TableColumn fx:id="columAnoPub2" minWidth="9.0" prefWidth="104.0" text="Año Publicación" />
-                              <TableColumn fx:id="columCantidad2" prefWidth="84.0" text="Cantidad" />
+                              <TableColumn fx:id="columNombreProve" prefWidth="167.0" text="Nombre" />
+                              <TableColumn fx:id="columDireccionProve" prefWidth="219.0" text="Dirección" />
+                              <TableColumn fx:id="columContactoProve" minWidth="9.0" prefWidth="87.0" text="Contacto" />
+                              <TableColumn fx:id="columFacturacion" prefWidth="177.0" text="Facturación" />
                            </columns>
                         </TableView>
                      </content>
@@ -85,7 +85,7 @@
               </tabs>
             </TabPane>
         <AnchorPane layoutX="-142.0" layoutY="279.0" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            <Button fx:id="btnBorrar1" layoutX="424.0" layoutY="110.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="118.0" text="Generar Reporte">
+            <Button fx:id="btnGenRep" layoutX="478.0" layoutY="110.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="118.0" text="Generar Reporte">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>

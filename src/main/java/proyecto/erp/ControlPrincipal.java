@@ -23,15 +23,9 @@ import java.sql.Date;
 import static proyecto.erp.Conexion.ConexionDB.getConnection;
 
 public class ControlPrincipal {
-    public TextField usuarioText;
     public ComboBox<String> comboFiltro;
     public Label textError;
     public ImageView imgLogo;
-    public TableView<Cliente> tablaLibros;
-    public TableColumn<Cliente, String> columTitulo;
-    public TableColumn<Cliente, String> columAutor;
-    public TableColumn<Cliente, Date> columAnoPub;
-    public TableColumn<Cliente, Integer> columCantidad;
     public Button btnAnadir;
     public Button btnBorrar;
     public Tab tabCliente;
@@ -40,31 +34,27 @@ public class ControlPrincipal {
     public TableView tablaProductos;
     public Tab tabProveedores;
     public TableView tablaProveedores;
+    public TableColumn columDni;
+    public TextField buscarTxt;
+    public TabPane tabprincipal;
+
+    public TableColumn columNombreCli;
+    public TableColumn columDireccionCli;
+    public TableColumn columContactoCli;
+    public TableColumn columNombreProd;
+    public TableColumn columDescripcionProd;
+    public TableColumn columPrecio;
+    public TableColumn columCantidad;
+    public TableColumn columIdProveedor;
+    public TableColumn columNombreProve;
+    public TableColumn columDireccionProve;
+    public TableColumn columContactoProve;
+    public TableColumn columFacturacion;
+    public Button btnGenRep;
 
     @FXML
     private void initialize() {
-        // Configurar las columnas de la TableView
-        columTitulo.setCellValueFactory(cellData -> cellData.getValue().nombreProperty());
-        columAutor.setCellValueFactory(cellData -> cellData.getValue().direccionProperty());
-        columAnoPub.setCellFactory(column -> new TableCell<Cliente, Date>() {
-            private final SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-
-            @Override
-            protected void updateItem(Date item, boolean empty) {
-                super.updateItem(item, empty);
-
-                if(empty) {
-                    setText(null);
-                }
-                else {
-                    this.setText(format.format(item));
-                }
-            }
-        });
-        columAnoPub.setCellValueFactory(new PropertyValueFactory<>("fecha"));
-        columCantidad.setCellValueFactory(cellData -> cellData.getValue().cantidadDisponibleProperty().asObject());
-
-        cargarDatosLibros();
+        cargarDatos();
         ejecutarCargaPeriodica();
 
         btnAnadir.setOnAction(this::btnAnadirPulsado);
@@ -140,23 +130,24 @@ public class ControlPrincipal {
         hilo.start();
     }
 
-    private void cargarDatosLibros() {
-        tablaLibros.getItems().clear();
+    private void cargarDatosClientes() {
+
+
+
+        tablaClientes.getItems().clear();
         try (Connection connection = getConnection()) {
-            String query = "SELECT * FROM libros";
+            String query = "SELECT * FROM clientes";
             try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
                 try (ResultSet resultSet = preparedStatement.executeQuery()) {
                     while (resultSet.next()) {
-                        int idLibro = resultSet.getInt("idLibro");
-                        String titulo = resultSet.getString("libros.titulo");
-                        String autor = resultSet.getString("libros.autor");
-                        Date fecha = resultSet.getDate("libros.aniopublicación");
-                        int cantidadDisponible = resultSet.getInt("libros.cantidadDisponible");
-
-                        tablaLibros.getItems().add(new Cliente(idLibro,titulo, autor, fecha, cantidadDisponible ));
+                        int idCliente = resultSet.getInt("id_cliente");
+                        String nombre = resultSet.getString("nombre");
+                        String direccion = resultSet.getString("direccion");
+                        String contacto = resultSet.getString("contacto");
+                        String dni = resultSet.getString("dni");
+                        tablaClientes.getItems().add(new Cliente(idCliente,nombre, direccion, contacto, dni));
 
                     }
-                }
             }
             tablaLibros.refresh();
         } catch (SQLException e) {

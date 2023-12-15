@@ -19,6 +19,11 @@ public class Cliente {
         this.dni = dni;
     }
 
+    public Cliente(int idCliente, String nombre, String direccion, String contacto, String dni) {
+        this.idCliente = idCliente;
+
+    }
+
     public String getContacto() {
         return contacto.get();
     }
