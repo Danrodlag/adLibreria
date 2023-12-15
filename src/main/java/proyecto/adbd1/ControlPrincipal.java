@@ -34,7 +34,6 @@ import static proyecto.adbd1.Conexion.ConexionDB.getConnection;
 public class ControlPrincipal {
     public TextField usuarioText;
     public ComboBox<String> comboFiltro;
-    public Label textError;
     public ImageView imgLogo;
     public TableView<Libro> tablaLibros;
     public TableColumn<Libro, String> columTitulo;
