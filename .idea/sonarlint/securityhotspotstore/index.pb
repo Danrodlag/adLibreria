@@ -24,6 +24,8 @@ S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 ]
 -.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
+>
+bbddAd/erp.sql,1\5\15d39ff075804a20e5b26c94a928e5a0f2961607
 g
 7src/main/java/proyecto/erp/ControlAccesoController.java,8\2\82395fed1e26616cfa4739705dbd15ced4fadd4e
 c
