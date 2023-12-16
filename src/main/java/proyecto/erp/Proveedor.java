@@ -1,6 +1,8 @@
 package proyecto.erp;
 
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Proveedor {
@@ -9,11 +11,11 @@ public class Proveedor {
     private StringProperty direccion;
     private StringProperty contacto;
 
-    public Proveedor(IntegerProperty idProveedor, StringProperty nombre, StringProperty direccion, StringProperty contacto) {
-        this.idProveedor = idProveedor;
-        this.nombre = nombre;
-        this.direccion = direccion;
-        this.contacto = contacto;
+    public Proveedor(int idProveedor, String nombre, String direccion, String contacto) {
+        this.idProveedor = new SimpleIntegerProperty(idProveedor);
+        this.nombre = new SimpleStringProperty(nombre);
+        this.direccion = new SimpleStringProperty(direccion);
+        this.contacto = new SimpleStringProperty(contacto);
     }
 
     public int getIdProveedor() {

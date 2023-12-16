@@ -61,8 +61,8 @@ public class ControlAccesoController {
 
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 Scene scene = new Scene(root);
-                stage.setMinWidth(600);
-                stage.setMinHeight(400);
+                stage.setMinWidth(800);
+                stage.setMinHeight(600);
                 stage.setScene(scene);
                 stage.show();
             } catch (IOException e) {
@@ -115,7 +115,7 @@ public class ControlAccesoController {
                     // Mover el cursor a la primera fila
                     if (resultSet.next()) {
                         // Si hay algún resultado, las credenciales son válidas
-                        if (encriptacion.hashPassword(resultSet.getString("contraseña")).equals(password)){
+                        if (encriptacion.hashPassword(resultSet.getString("contrasena")).equals(password)){
                             return true;
                         }
                     } else {

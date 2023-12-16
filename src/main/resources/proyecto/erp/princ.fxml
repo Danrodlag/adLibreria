@@ -33,12 +33,7 @@
                <image>
                   <Image url="@LogoEmpresaLibros.jpg" />
                </image></ImageView>
-            <Button fx:id="btnAnadir" layoutX="201.0" layoutY="110.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Añadir Cliente">
-               <font>
-                  <Font name="Arial Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnBorrar" layoutX="346.0" layoutY="110.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Borrar Libro">
+            <Button fx:id="btnAnadir" layoutX="201.0" layoutY="110.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Añadir">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
@@ -74,10 +69,34 @@
                      <content>
                         <TableView fx:id="tablaProveedores" prefHeight="212.0" prefWidth="529.0">
                            <columns>
-                              <TableColumn fx:id="columNombreProve" prefWidth="167.0" text="Nombre" />
-                              <TableColumn fx:id="columDireccionProve" prefWidth="219.0" text="Dirección" />
-                              <TableColumn fx:id="columContactoProve" minWidth="9.0" prefWidth="87.0" text="Contacto" />
-                              <TableColumn fx:id="columFacturacion" prefWidth="177.0" text="Facturación" />
+                              <TableColumn fx:id="columNombreProve" prefWidth="167.0" text="Id Proveedor" />
+                              <TableColumn fx:id="columDireccionProve" prefWidth="239.0" text="Id Producto" />
+                              <TableColumn fx:id="columContactoProve" minWidth="9.0" prefWidth="244.0" text="Id Cantidad" />
+                           </columns>
+                        </TableView>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="tabVentas" text="Venta">
+                     <content>
+                        <TableView fx:id="tablaVentas" prefHeight="212.0" prefWidth="529.0">
+                           <columns>
+                              <TableColumn fx:id="columNumCliente" prefWidth="167.0" text="Número cliente" />
+                              <TableColumn fx:id="columFechaVenta" prefWidth="142.0" text="Fecha" />
+                              <TableColumn fx:id="columTotalVenta" minWidth="9.0" prefWidth="164.0" text="Total" />
+                              <TableColumn fx:id="columProducto" prefWidth="79.0" text="Productos" />
+                              <TableColumn fx:id="columCantidadVenta" minWidth="9.0" prefWidth="98.0" text="Cantidad" />
+                           </columns>
+                        </TableView>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="tabPedido" text="Pedido">
+                     <content>
+                        <TableView fx:id="tablaPedido" prefHeight="212.0" prefWidth="529.0">
+                           <columns>
+                              <TableColumn fx:id="columNumPedido" prefWidth="167.0" text="NumPedido" />
+                              <TableColumn fx:id="columNumProv" prefWidth="157.0" text="Número Proveedor" />
+                              <TableColumn fx:id="columNumProducto" minWidth="9.0" prefWidth="171.0" text="Número producto" />
+                              <TableColumn fx:id="columCantidadPedido" minWidth="9.0" prefWidth="155.0" text="Cantidad" />
                            </columns>
                         </TableView>
                      </content>

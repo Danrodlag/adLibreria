@@ -11,18 +11,15 @@ public class Cliente {
     private StringProperty contacto;
     private StringProperty dni;
 
-    public Cliente(IntegerProperty idCliente, StringProperty nombre, StringProperty direccion, StringProperty contacto, StringProperty dni) {
-        this.idCliente = idCliente;
-        this.nombre = nombre;
-        this.direccion = direccion;
-        this.contacto = contacto;
-        this.dni = dni;
-    }
-
     public Cliente(int idCliente, String nombre, String direccion, String contacto, String dni) {
-        this.idCliente = idCliente;
-
+        this.idCliente = new SimpleIntegerProperty(idCliente);
+        this.nombre = new SimpleStringProperty(nombre);
+        this.direccion = new SimpleStringProperty(direccion);
+        this.contacto = new SimpleStringProperty(contacto);
+        this.dni = new SimpleStringProperty(dni);
     }
+
+
 
     public String getContacto() {
         return contacto.get();

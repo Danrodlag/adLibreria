@@ -1,23 +1,22 @@
 package proyecto.erp;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 
 public class Producto {
     private IntegerProperty idProducto;
     private StringProperty nombre;
     private StringProperty descripcion;
-    private IntegerProperty precio;
+    private FloatProperty precio;
     private IntegerProperty cantidadStock;
     private IntegerProperty idProveedor;
 
-    public Producto(IntegerProperty idProducto, StringProperty nombre, StringProperty descripcion, IntegerProperty precio, IntegerProperty cantidadStock, IntegerProperty idProveedor) {
-        this.idProducto = idProducto;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.precio = precio;
-        this.cantidadStock = cantidadStock;
-        this.idProveedor = idProveedor;
+    public Producto(int idProducto, String nombre, String descripcion, float precio, int cantidadStock, int idProveedor) {
+        this.idProducto = new SimpleIntegerProperty(idProducto);
+        this.nombre = new SimpleStringProperty(nombre);
+        this.descripcion = new SimpleStringProperty(descripcion);
+        this.precio = new SimpleFloatProperty(precio);
+        this.cantidadStock = new SimpleIntegerProperty(cantidadStock);
+        this.idProveedor = new SimpleIntegerProperty(idProveedor);
     }
 
     public int getIdProducto() {
@@ -56,15 +55,15 @@ public class Producto {
         this.descripcion.set(descripcion);
     }
 
-    public int getPrecio() {
+    public float getPrecio() {
         return precio.get();
     }
 
-    public IntegerProperty precioProperty() {
+    public FloatProperty precioProperty() {
         return precio;
     }
 
-    public void setPrecio(int precio) {
+    public void setPrecio(float precio) {
         this.precio.set(precio);
     }
 

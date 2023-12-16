@@ -312,3 +312,9 @@ Q.idea/sonarlint/securityhotspotstore/f/7/f7aaa9213b17b5998b2697b9307a11ecd9891a
 Q.idea/sonarlint/securityhotspotstore/d/9/d9b1c19becf5a718f85ae7c6c908ab1e6ccb186a,e\3\e3105013ff4b75f4d7ae266f5c2431690803297b
 w
 G.idea/sonarlint/issuestore/d/9/d9b1c19becf5a718f85ae7c6c908ab1e6ccb186a,5\3\539bbb78008765b4322fe107ec2c977be8eae6d3
+U
+%src/main/java/proyecto/erp/Venta.java,7\0\706adf9050791fbc392d1fc94cc4cfbde42fde4e
+V
+&src/main/java/proyecto/erp/Pedido.java,4\0\401ad25b60fbf519320db3b20b637b44b1bef48f
+N
+src/main/java/module-info.java,1\c\1c89a5491fbfda3fb050196d6a239f20200296e7
